@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghost Cinemax</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #05050a, #111122);
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #111;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #9b5cff;
+      letter-spacing: 3px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #9b5cff;
+    }
+
+    .login-btn {
+      background: #9b5cff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #6e35ff;
+    }
+
+    .hero {
+      height: 90vh;
+      background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1400&auto=format&fit=crop') center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
+
+    .hero span {
+      color: #9b5cff;
+    }
+
+    .hero p {
+      color: #ccc;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+
+    .hero button {
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .buy-btn {
+      background: #9b5cff;
+      color: white;
+    }
+
+    .buy-btn:hover {
+      background: #6e35ff;
+    }
+
+    .trailer-btn {
+      background: transparent;
+      border: 2px solid #9b5cff !important;
+      color: white;
+    }
+
+    .trailer-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    .movies {
+      padding: 80px 50px;
+      background: #111;
+    }
+
+    .movies h2 {
+      font-size: 45px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .movie-card {
+      background: #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .movie-card:hover {
+      transform: scale(1.03);
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .movie-info {
+      padding: 20px;
+    }
+
+    .movie-info h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .movie-info p {
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .movie-info button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      background: #9b5cff;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .movie-info button:hover {
+      background: #6e35ff;
+    }
+
+    .schedule {
+      padding: 80px 50px;
+      background: black;
+    }
+
+    .schedule h2 {
+      text-align: center;
+      font-size: 45px;
+      margin-bottom: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #111;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    th, td {
+      padding: 20px;
+      text-align: left;
+      border-bottom: 1px solid #222;
+    }
+
+    th {
+      background: #1c1c1c;
+    }
+
+    tr:hover {
+      background: #181818;
+    }
+
+    .price {
+      color: #9b5cff;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      padding: 40px 50px;
+      border-top: 1px solid #222;
+      text-align: center;
+      color: #aaa;
+    }
+
+    @media(max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">GHOST CINEMAX</div>
+
+    <nav>
+      <a href="#">Главная</a>
+      <a href="#movies">Фильмы</a>
+      <a href="#schedule">Расписание</a>
+      <a href="#footer">Контакты</a>
+    </nav>
+
+    <button class="login-btn">Войти</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Добро пожаловать в <span>GHOST CINEMAX</span></h1>
+
+      <p>
+        Окунитесь в мистический мир неоновых залов, тёмных премьер и призрачной атмосферы кино.
+      </p>
+
+      <button class="buy-btn">Купить билет</button>
+      <button class="trailer-btn">Трейлеры</button>
+    </div>
+  </section>
+
+  <section class="movies" id="movies">
+    <h2>Призрачные премьеры</h2>
+
+    <div class="movie-grid">
+
+      <div class="movie-card">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop" alt="movie">
+
+        <div class="movie-info">
+          <h3>Ghost Protocol</h3>
+          <p>Мистика • 18:30</p>
+          <button>Купить билет</button>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop" alt="movie">
+
+        <div class="movie-info">
+          <h3>Phantom Night</h3>
+          <p>Триллер • 20:00</p>
+          <button>Купить билет</button>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1200&auto=format&fit=crop" alt="movie">
+
+        <div class="movie-info">
+          <h3>Shadow Reborn</h3>
+          <p>Хоррор • 22:00</p>
+          <button>Купить билет</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="schedule" id="schedule">
+    <h2>Расписание</h2>
+
+    <table>
+      <tr>
+        <th>Фильм</th>
+        <th>Зал</th>
+        <th>Время</th>
+        <th>Цена</th>
+      </tr>
+
+      <tr>
+        <td>Ghost Protocol</td>
+        <td>Ghost Hall</td>
+        <td>18:30</td>
+        <td class="price">6666 ₸</td>
+      </tr>
+
+      <tr>
+        <td>Phantom Night</td>
+        <td>Phantom VIP</td>
+        <td>20:00</td>
+        <td class="price">7777 ₸</td>
+      </tr>
+
+      <tr>
+        <td>Shadow Reborn</td>
+        <td>Shadow Room</td>
+        <td>22:00</td>
+        <td class="price">5555 ₸</td>
+      </tr>
+    </table>
+  </section>
+
+  <footer id="footer">
+    <h3>GHOST CINEMAX</h3>
+    <p>г. Алматы • +7 (777) 777-77-77</p>
+    <p>ghostcinemax@mail.kz</p>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.buy-btn, .movie-info button');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        alert('Добро пожаловать в Ghost Cinemax');
+      });
+    });
+  </script>
+
+</body>
+</html>
