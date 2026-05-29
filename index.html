@@ -510,21 +510,86 @@ footer::before{
   }
 
 }
-  /* CINEMA ROOM */
-
-.cinema-room{
-  margin-top:70px;
-  text-align:center;
+ .schedule-grid{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
 }
 
-.cinema-room h3{
-  font-size:35px;
-  margin-bottom:30px;
+.schedule-card{
+  background:
+  rgba(255,255,255,0.04);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  backdrop-filter:blur(10px);
+}
+
+.schedule-top{
+  padding:35px;
+}
+
+.schedule-top h3{
+  font-size:38px;
+  margin-bottom:20px;
+
   font-family:'Orbitron',sans-serif;
 }
 
+.schedule-info{
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+
+  color:#bbb;
+
+  margin-bottom:25px;
+}
+
+.openSeats{
+  padding:15px 30px;
+
+  border:none;
+
+  border-radius:50px;
+
+  background:
+  linear-gradient(135deg,#9b5cff,#5b1fff);
+
+  color:white;
+
+  font-size:16px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.openSeats:hover{
+  transform:scale(1.05);
+}
+
+.cinema-room{
+  display:none;
+
+  padding:40px;
+  border-top:
+  1px solid rgba(255,255,255,0.08);
+}
+
+.cinema-room.active{
+  display:block;
+}
+
 .screen{
-  width:80%;
+  width:70%;
+
   margin:0 auto 50px;
 
   background:white;
@@ -532,8 +597,9 @@ footer::before{
 
   padding:18px;
 
-  border-radius:15px;
+  border-radius:20px;
 
+  text-align:center;
   font-weight:bold;
 
   box-shadow:
@@ -542,23 +608,23 @@ footer::before{
 
 .seats{
   display:grid;
-  grid-template-columns:
-  repeat(8,50px);
 
-  gap:15px;
+  grid-template-columns:
+  repeat(6,55px);
+
+  gap:18px;
 
   justify-content:center;
-
-  margin-bottom:40px;
 }
 
 .seat{
-  width:50px;
-  height:50px;
+  width:55px;
+  height:55px;
 
   border-radius:15px;
 
-  background:#9b5cff;
+  background:
+  linear-gradient(135deg,#9b5cff,#5b1fff);
 
   cursor:pointer;
 
@@ -569,11 +635,6 @@ footer::before{
   transform:scale(1.1);
 }
 
-.seat.taken{
-  background:#2c2c2c;
-  cursor:not-allowed;
-}
-
 .seat.selected{
   background:#00ffae;
 
@@ -581,34 +642,9 @@ footer::before{
   0 0 20px #00ffae;
 }
 
-.legend{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
-
-  margin-bottom:30px;
-}
-
-.legend-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.legend-item .seat{
-  width:25px;
-  height:25px;
-}
-
-.seat-info{
-  font-size:22px;
-  color:#ddd;
-}
-
-#count{
-  color:#00ffae;
-  font-weight:bold;
+.seat.taken{
+  background:#2d2d2d;
+  cursor:not-allowed;
 }
 
 </style>
@@ -722,112 +758,173 @@ footer::before{
 
 </div>
 
-</section>
-
-<!-- SCHEDULE -->
-
 <section id="schedule">
 
 <div class="section-title">
   <h2>Ночное Расписание</h2>
-  <p>Выберите свой сеанс в мире Ghost</p>
+  <p>Нажмите на фильм чтобы выбрать места</p>
 </div>
 
-<div class="schedule-table">
+<div class="schedule-grid">
 
-<table>
+  <!-- FILM 1 -->
 
-<tr>
-<th>Фильм</th>
-<th>Зал</th>
-<th>Время</th>
-<th>Цена</th>
-</tr>
+  <div class="schedule-card">
 
-<tr>
-<td>Пила Х</td>
-<td>Ghost Hall</td>
-<td>18:30</td>
-<td class="price">2300 ₸</td>
-</tr>
+    <div class="schedule-top">
 
-<tr>
-<td>Хэллоуин</td>
-<td>Phantom VIP</td>
-<td>20:00</td>
-<td class="price">7000 ₸</td>
-</tr>
+      <h3>Пила Х</h3>
 
-<tr>
-<td>Ужасающий 3</td>
-<td>Shadow Room</td>
-<td>22:00</td>
-<td class="price">5500 ₸</td>
-</tr>
+      <div class="schedule-info">
+        <span>🎬 Ghost Hall</span>
+        <span>🕒 18:30</span>
+        <span>💰 2300 ₸</span>
+      </div>
 
-</table>
-  <div class="cinema-room">
+      <button class="openSeats">
+        Выбрать места
+      </button>
 
-<h3>Ghost Hall — Выбор мест</h3>
+    </div>
 
-<div class="screen">ЭКРАН</div>
+    <div class="cinema-room">
 
-<div class="seats">
+      <div class="screen">ЭКРАН</div>
 
-<div class="seat taken"></div>
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat taken"></div>
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat taken"></div>
+      <div class="seats">
 
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat taken"></div>
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat taken"></div>
-<div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
 
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat taken"></div>
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat"></div>
-<div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
 
-</div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
 
-<div class="legend">
+      </div>
 
-<div class="legend-item">
-<div class="seat"></div>
-<span>Свободно</span>
-</div>
+    </div>
 
-<div class="legend-item">
-<div class="seat selected"></div>
-<span>Выбрано</span>
-</div>
+  </div>
 
-<div class="legend-item">
-<div class="seat taken"></div>
-<span>Занято</span>
-</div>
+  <!-- FILM 2 -->
 
-</div>
+  <div class="schedule-card">
 
-<p class="seat-info">
-Выбрано мест:
-<span id="count">0</span>
-</p>
+    <div class="schedule-top">
 
-</div>
+      <h3>Хэллоуин</h3>
+
+      <div class="schedule-info">
+        <span>🎬 Phantom VIP</span>
+        <span>🕒 20:00</span>
+        <span>💰 7000 ₸</span>
+      </div>
+
+      <button class="openSeats">
+        Выбрать места
+      </button>
+
+    </div>
+
+    <div class="cinema-room">
+
+      <div class="screen">ЭКРАН</div>
+
+      <div class="seats">
+
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FILM 3 -->
+
+  <div class="schedule-card">
+
+    <div class="schedule-top">
+
+      <h3>Ужасающий 3</h3>
+
+      <div class="schedule-info">
+        <span>🎬 Shadow Room</span>
+        <span>🕒 22:00</span>
+        <span>💰 5500 ₸</span>
+      </div>
+
+      <button class="openSeats">
+        Выбрать места
+      </button>
+
+    </div>
+
+    <div class="cinema-room">
+
+      <div class="screen">ЭКРАН</div>
+
+      <div class="seats">
+
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat taken"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 
@@ -922,7 +1019,24 @@ document.querySelectorAll('.seat.selected');
 count.innerText = selectedSeats.length;
 
 }
+room.classList.toggle('active');
 
+});
+
+});
+
+const seats =
+document.querySelectorAll('.seat:not(.taken)');
+
+seats.forEach(seat => {
+
+seat.addEventListener('click', () => {
+
+seat.classList.toggle('selected');
+
+});
+
+});
 
 </script>
 
