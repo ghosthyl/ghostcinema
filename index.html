@@ -510,6 +510,106 @@ footer::before{
   }
 
 }
+  /* CINEMA ROOM */
+
+.cinema-room{
+  margin-top:70px;
+  text-align:center;
+}
+
+.cinema-room h3{
+  font-size:35px;
+  margin-bottom:30px;
+  font-family:'Orbitron',sans-serif;
+}
+
+.screen{
+  width:80%;
+  margin:0 auto 50px;
+
+  background:white;
+  color:black;
+
+  padding:18px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+
+  box-shadow:
+  0 0 40px rgba(255,255,255,0.5);
+}
+
+.seats{
+  display:grid;
+  grid-template-columns:
+  repeat(8,50px);
+
+  gap:15px;
+
+  justify-content:center;
+
+  margin-bottom:40px;
+}
+
+.seat{
+  width:50px;
+  height:50px;
+
+  border-radius:15px;
+
+  background:#9b5cff;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.seat:hover{
+  transform:scale(1.1);
+}
+
+.seat.taken{
+  background:#2c2c2c;
+  cursor:not-allowed;
+}
+
+.seat.selected{
+  background:#00ffae;
+
+  box-shadow:
+  0 0 20px #00ffae;
+}
+
+.legend{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+
+  margin-bottom:30px;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.legend-item .seat{
+  width:25px;
+  height:25px;
+}
+
+.seat-info{
+  font-size:22px;
+  color:#ddd;
+}
+
+#count{
+  color:#00ffae;
+  font-weight:bold;
+}
 
 </style>
 </head>
@@ -666,6 +766,68 @@ footer::before{
 </tr>
 
 </table>
+  <div class="cinema-room">
+
+<h3>Ghost Hall — Выбор мест</h3>
+
+<div class="screen">ЭКРАН</div>
+
+<div class="seats">
+
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+
+</div>
+
+<div class="legend">
+
+<div class="legend-item">
+<div class="seat"></div>
+<span>Свободно</span>
+</div>
+
+<div class="legend-item">
+<div class="seat selected"></div>
+<span>Выбрано</span>
+</div>
+
+<div class="legend-item">
+<div class="seat taken"></div>
+<span>Занято</span>
+</div>
+
+</div>
+
+<p class="seat-info">
+Выбрано мест:
+<span id="count">0</span>
+</p>
+
+</div>
 
 </div>
 
@@ -736,6 +898,31 @@ alert('Добро пожаловать в GHOST CINEMAX 👻');
 });
 
 });
+ 
+const seats = document.querySelectorAll('.seat:not(.taken)');
+const count = document.getElementById('count');
+
+seats.forEach(seat => {
+
+seat.addEventListener('click', () => {
+
+seat.classList.toggle('selected');
+
+updateSeats();
+
+});
+
+});
+
+function updateSeats(){
+
+const selectedSeats =
+document.querySelectorAll('.seat.selected');
+
+count.innerText = selectedSeats.length;
+
+}
+
 
 </script>
 
