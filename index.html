@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ghost Cinemax</title>
 
@@ -26,17 +26,6 @@ body{
   radial-gradient(circle at top,#32145f 0%,#090910 40%,#040404 100%);
   color:white;
   overflow-x:hidden;
-}
-
-/* SCROLL */
-
-::-webkit-scrollbar{
-  width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-  background:#8f5bff;
-  border-radius:20px;
 }
 
 /* HEADER */
@@ -80,49 +69,11 @@ nav{
 nav a{
   text-decoration:none;
   color:#ddd;
-  font-size:15px;
-  position:relative;
-  transition:0.3s;
-}
-
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-8px;
-  width:0%;
-  height:2px;
-  background:#9b5cff;
   transition:0.3s;
 }
 
 nav a:hover{
-  color:white;
-}
-
-nav a:hover::after{
-  width:100%;
-}
-
-.login-btn{
-  padding:14px 26px;
-  border:none;
-  border-radius:50px;
-
-  background:linear-gradient(135deg,#9b5cff,#5b1fff);
-
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-
-  box-shadow:0 0 20px rgba(155,92,255,0.5);
-
-  transition:0.3s;
-}
-
-.login-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 30px rgba(155,92,255,0.9);
+  color:#b48cff;
 }
 
 /* HERO */
@@ -131,8 +82,8 @@ nav a:hover::after{
   height:100vh;
 
   background:
-  linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
-  url('https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1600&auto=format&fit=crop');
+  linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),
+  url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600&auto=format&fit=crop');
 
   background-size:cover;
   background-position:center;
@@ -141,37 +92,20 @@ nav a:hover::after{
   justify-content:center;
   align-items:center;
   text-align:center;
-
-  position:relative;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  background:#7c3cff;
-  filter:blur(180px);
-  opacity:0.25;
-  border-radius:50%;
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
   max-width:850px;
-  padding:20px;
 }
 
 .hero h1{
   font-size:85px;
-  line-height:1.1;
   margin-bottom:25px;
 
   font-family:'Orbitron',sans-serif;
 
   text-shadow:
-  0 0 15px rgba(155,92,255,0.7);
+  0 0 20px rgba(155,92,255,0.7);
 }
 
 .hero span{
@@ -179,49 +113,9 @@ nav a:hover::after{
 }
 
 .hero p{
-  color:#cfcfcf;
+  color:#d0d0d0;
   font-size:20px;
-  margin-bottom:40px;
   line-height:1.8;
-}
-
-.hero-buttons{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.hero button{
-  padding:16px 35px;
-  border:none;
-  border-radius:60px;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.3s;
-  font-weight:600;
-}
-
-.buy-btn{
-  background:linear-gradient(135deg,#9b5cff,#5b1fff);
-  color:white;
-
-  box-shadow:0 0 25px rgba(155,92,255,0.5);
-}
-
-.buy-btn:hover{
-  transform:translateY(-5px) scale(1.05);
-}
-
-.trailer-btn{
-  background:transparent;
-  border:2px solid #9b5cff !important;
-  color:white;
-}
-
-.trailer-btn:hover{
-  background:#9b5cff;
-  box-shadow:0 0 25px rgba(155,92,255,0.7);
 }
 
 /* SECTION */
@@ -243,36 +137,34 @@ section{
 
 .section-title p{
   color:#aaa;
-  font-size:18px;
 }
 
 /* MOVIES */
 
-.movies{
-  position:relative;
-}
-
 .movie-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
   gap:40px;
 }
 
 .movie-card{
   background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
 
   border-radius:30px;
+
   overflow:hidden;
 
-  backdrop-filter:blur(12px);
-
   transition:0.4s;
-  position:relative;
 }
 
 .movie-card:hover{
   transform:translateY(-10px);
+
   box-shadow:
   0 0 40px rgba(155,92,255,0.3);
 }
@@ -289,228 +181,17 @@ section{
 
 .movie-info h3{
   font-size:30px;
-  margin-bottom:12px;
+  margin-bottom:15px;
 }
 
 .movie-info p{
   color:#bbb;
-  margin-bottom:25px;
-  line-height:1.7;
-}
-
-.movie-info button{
-  width:100%;
-  padding:16px;
-  border:none;
-  border-radius:14px;
-
-  background:linear-gradient(135deg,#9b5cff,#5b1fff);
-
-  color:white;
-  font-size:15px;
-  font-weight:600;
-  cursor:pointer;
-
-  transition:0.3s;
-}
-
-.movie-info button:hover{
-  transform:scale(1.03);
+  line-height:1.8;
 }
 
 /* SCHEDULE */
 
-.schedule-table{
-  overflow-x:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-
-  background:rgba(255,255,255,0.04);
-
-  border-radius:25px;
-  overflow:hidden;
-
-  backdrop-filter:blur(10px);
-}
-
-th{
-  background:#151520;
-  font-size:17px;
-  color:#caa7ff;
-}
-
-th,td{
-  padding:24px;
-  text-align:left;
-}
-
-tr{
-  border-bottom:1px solid rgba(255,255,255,0.05);
-  transition:0.3s;
-}
-
-tr:hover{
-  background:rgba(255,255,255,0.03);
-}
-
-.price{
-  color:#b48cff;
-  font-weight:700;
-  font-size:18px;
-}
-
-/* FOOTER */
-
-footer{
-  position:relative;
-
-  background:
-  linear-gradient(to top,#050505,#0f0f1a);
-
-  padding:90px 70px 40px;
-
-  overflow:hidden;
-}
-
-footer::before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  background:#7b2fff;
-  filter:blur(180px);
-  opacity:0.15;
-  top:-200px;
-  right:-100px;
-}
-
-.footer-container{
-  position:relative;
-  z-index:2;
-
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(250px,1fr));
-
-  gap:50px;
-
-  margin-bottom:60px;
-}
-
-.footer-logo{
-  font-family:'Orbitron',sans-serif;
-  font-size:38px;
-  color:#b48cff;
-  margin-bottom:20px;
-
-  text-shadow:0 0 15px rgba(155,92,255,0.7);
-}
-
-.footer-about p{
-  color:#bdbdbd;
-  line-height:1.9;
-}
-
-.footer-links h3,
-.footer-contact h3{
-  margin-bottom:25px;
-  font-size:22px;
-}
-
-.footer-links a{
-  display:block;
-  text-decoration:none;
-  color:#bdbdbd;
-  margin-bottom:15px;
-  transition:0.3s;
-}
-
-.footer-links a:hover{
-  color:#b48cff;
-  transform:translateX(5px);
-}
-
-.footer-contact p{
-  margin-bottom:15px;
-  color:#cfcfcf;
-}
-
-.socials{
-  display:flex;
-  gap:15px;
-  margin-top:25px;
-}
-
-.socials a{
-  width:45px;
-  height:45px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  border-radius:50%;
-
-  background:rgba(255,255,255,0.08);
-
-  color:white;
-  text-decoration:none;
-
-  transition:0.3s;
-}
-
-.socials a:hover{
-  background:#9b5cff;
-  transform:translateY(-5px);
-}
-
-.footer-bottom{
-  border-top:1px solid rgba(255,255,255,0.08);
-  padding-top:30px;
-  text-align:center;
-  color:#888;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-  header{
-    padding:20px 25px;
-    flex-direction:column;
-    gap:20px;
-  }
-
-  nav{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .hero h1{
-    font-size:55px;
-  }
-
-  section{
-    padding:100px 25px;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .section-title h2{
-    font-size:38px;
-  }
-
-}
- .schedule-grid{
+.schedule-grid{
   display:flex;
   flex-direction:column;
   gap:40px;
@@ -518,7 +199,7 @@ footer::before{
 
 .schedule-card{
   background:
-  rgba(255,255,255,0.04);
+  rgba(255,255,255,0.05);
 
   border:
   1px solid rgba(255,255,255,0.08);
@@ -526,8 +207,6 @@ footer::before{
   border-radius:30px;
 
   overflow:hidden;
-
-  backdrop-filter:blur(10px);
 }
 
 .schedule-top{
@@ -555,7 +234,6 @@ footer::before{
   padding:15px 30px;
 
   border:none;
-
   border-radius:50px;
 
   background:
@@ -575,10 +253,13 @@ footer::before{
   transform:scale(1.05);
 }
 
+/* CINEMA ROOM */
+
 .cinema-room{
   display:none;
 
   padding:40px;
+
   border-top:
   1px solid rgba(255,255,255,0.08);
 }
@@ -647,6 +328,40 @@ footer::before{
   cursor:not-allowed;
 }
 
+/* FOOTER */
+
+footer{
+  background:#08080f;
+  padding:80px 40px;
+  text-align:center;
+  color:#aaa;
+}
+
+.footer-logo{
+  font-size:40px;
+  margin-bottom:20px;
+
+  font-family:'Orbitron',sans-serif;
+  color:#b48cff;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+  font-size:55px;
+}
+
+section{
+  padding:100px 25px;
+}
+
+header{
+  flex-direction:column;
+  gap:20px;
+}
+
+}
+
 </style>
 </head>
 
@@ -662,7 +377,6 @@ footer::before{
   <a href="#schedule">Расписание</a>
   <a href="#footer">Контакты</a>
 </nav>
-
 
 </header>
 
@@ -680,11 +394,7 @@ footer::before{
 <p>
 Погрузитесь в атмосферу неоновых теней,
 призрачных залов и мистических премьер.
-Кинотеатр будущего в стиле Ghost.
 </p>
-
-<div class="hero-buttons">
-</div>
 
 </div>
 
@@ -695,8 +405,8 @@ footer::before{
 <section class="movies" id="movies">
 
 <div class="section-title">
-  <h2>Призрачные Премьеры</h2>
-  <p>Самые тёмные и атмосферные фильмы этой ночи</p>
+<h2>Призрачные Премьеры</h2>
+<p>Самые тёмные фильмы этой ночи</p>
 </div>
 
 <div class="movie-grid">
@@ -710,32 +420,30 @@ footer::before{
 <h3>Пила Х</h3>
 
 <p>
-Фильм Пила X рассказывает о Джоне Крамере — Конструкторе, который 
-отправляется в Мексику на экспериментальное лечение рака. 
-Узнав, что его обманули мошенники, он решает наказать 
-виновных своими жестокими испытаниями, где каждый должен 
-бороться за жизнь и признать свои грехи.
+Джон Крамер отправляется на лечение,
+но становится жертвой мошенников.
+Теперь он начинает свою игру.
 </p>
 
 </div>
+
 </div>
 
 <div class="movie-card">
 
-<img src="https://i.ytimg.com/vi/30bDZYEmOFg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDnnJmmsMetMSVlV05HaL23PA803A">
+<img src="https://i.ytimg.com/vi/30bDZYEmOFg/hq720.jpg">
 
 <div class="movie-info">
 
 <h3>Хэллоуин</h3>
 
 <p>
-Фильм Хэллоуин продолжает историю спустя 40 лет после первых событий. Майкл Майерс 
-сбегает из психиатрической клиники и возвращается в Хэддонфилд, 
-чтобы снова начать охоту. Лори Строуд долгие годы 
-готовилась к его возвращению и теперь готова дать ему последний бой.
+Майкл Майерс возвращается спустя 40 лет,
+а Лори Строуд готовится к последней битве.
 </p>
 
 </div>
+
 </div>
 
 <div class="movie-card">
@@ -747,184 +455,187 @@ footer::before{
 <h3>Ужасающий 3</h3>
 
 <p>
-Фильм Ужасающий 3 рассказывает о возвращении клоуна Арта, который устраивает 
-новую волну жестоких убийств в канун Рождества. 
-Главная героиня Сиенна пытается остановить его, пока город 
-погружается в хаос и кровавый кошмар.
+Клоун Арт возвращается и снова
+устраивает кровавый хаос.
 </p>
 
 </div>
+
 </div>
 
 </div>
+
+</section>
+
+<!-- SCHEDULE -->
 
 <section id="schedule">
 
 <div class="section-title">
-  <h2>Ночное Расписание</h2>
-  <p>Нажмите на фильм чтобы выбрать места</p>
+<h2>Ночное Расписание</h2>
+<p>Нажмите на фильм чтобы выбрать места</p>
 </div>
 
 <div class="schedule-grid">
 
-  <!-- FILM 1 -->
+<!-- FILM 1 -->
 
-  <div class="schedule-card">
+<div class="schedule-card">
 
-    <div class="schedule-top">
+<div class="schedule-top">
 
-      <h3>Пила Х</h3>
+<h3>Пила Х</h3>
 
-      <div class="schedule-info">
-        <span>🎬 Ghost Hall</span>
-        <span>🕒 18:30</span>
-        <span>💰 2300 ₸</span>
-      </div>
+<div class="schedule-info">
+<span>🎬 Ghost Hall</span>
+<span>🕒 18:30</span>
+<span>💰 2300 ₸</span>
+</div>
 
-      <button class="openSeats">
-        Выбрать места
-      </button>
+<button class="openSeats">
+Выбрать места
+</button>
 
-    </div>
+</div>
 
-    <div class="cinema-room">
+<div class="cinema-room">
 
-      <div class="screen">ЭКРАН</div>
+<div class="screen">ЭКРАН</div>
 
-      <div class="seats">
+<div class="seats">
 
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
 
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
 
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <!-- FILM 2 -->
+<!-- FILM 2 -->
 
-  <div class="schedule-card">
+<div class="schedule-card">
 
-    <div class="schedule-top">
+<div class="schedule-top">
 
-      <h3>Хэллоуин</h3>
+<h3>Хэллоуин</h3>
 
-      <div class="schedule-info">
-        <span>🎬 Phantom VIP</span>
-        <span>🕒 20:00</span>
-        <span>💰 7000 ₸</span>
-      </div>
+<div class="schedule-info">
+<span>🎬 Phantom VIP</span>
+<span>🕒 20:00</span>
+<span>💰 7000 ₸</span>
+</div>
 
-      <button class="openSeats">
-        Выбрать места
-      </button>
+<button class="openSeats">
+Выбрать места
+</button>
 
-    </div>
+</div>
 
-    <div class="cinema-room">
+<div class="cinema-room">
 
-      <div class="screen">ЭКРАН</div>
+<div class="screen">ЭКРАН</div>
 
-      <div class="seats">
+<div class="seats">
 
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
 
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
 
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <!-- FILM 3 -->
+<!-- FILM 3 -->
 
-  <div class="schedule-card">
+<div class="schedule-card">
 
-    <div class="schedule-top">
+<div class="schedule-top">
 
-      <h3>Ужасающий 3</h3>
+<h3>Ужасающий 3</h3>
 
-      <div class="schedule-info">
-        <span>🎬 Shadow Room</span>
-        <span>🕒 22:00</span>
-        <span>💰 5500 ₸</span>
-      </div>
+<div class="schedule-info">
+<span>🎬 Shadow Room</span>
+<span>🕒 22:00</span>
+<span>💰 5500 ₸</span>
+</div>
 
-      <button class="openSeats">
-        Выбрать места
-      </button>
+<button class="openSeats">
+Выбрать места
+</button>
 
-    </div>
+</div>
 
-    <div class="cinema-room">
+<div class="cinema-room">
 
-      <div class="screen">ЭКРАН</div>
+<div class="screen">ЭКРАН</div>
 
-      <div class="seats">
+<div class="seats">
 
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
 
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
 
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat taken"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat taken"></div>
+<div class="seat"></div>
+<div class="seat"></div>
+<div class="seat"></div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </div>
 
@@ -934,96 +645,41 @@ footer::before{
 
 <footer id="footer">
 
-<div class="footer-container">
-
-<div class="footer-about">
-
 <div class="footer-logo">
 GHOST CINEMAX
 </div>
 
 <p>
-Место, где оживают тени.
-Неоновая атмосфера, премиальные залы
-и кино будущего в стиле Ghost.
+Алматы • +7 (777) 777-77-77
 </p>
 
-
-</div>
-
-<div class="footer-links">
-
-<h3>Навигация</h3>
-
-<a href="#">Главная</a>
-<a href="#movies">Премьеры</a>
-<a href="#schedule">Расписание</a>
-
-</div>
-
-<div class="footer-contact">
-
-<h3>Контакты</h3>
-
-<p>📍 Алматы, Казахстан</p>
-<p>📞 +7 (777) 777-77-77</p>
-<p>✉ ghostcinemax@mail.kz</p>
-<p>🕓 24/7 Night Cinema</p>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-© 2026 GHOST CINEMAX — Neon Ghost Experience
-</div>
+<p>
+ghostcinemax@mail.kz
+</p>
 
 </footer>
 
 <script>
 
-const buttons = document.querySelectorAll(
-'.buy-btn, .movie-info button'
-);
+/* ОТКРЫТЬ МЕСТА */
 
-buttons.forEach(button => {
+const openButtons =
+document.querySelectorAll('.openSeats');
+
+openButtons.forEach(button => {
 
 button.addEventListener('click', () => {
 
-alert('Добро пожаловать в GHOST CINEMAX 👻');
+const room =
+button.parentElement.nextElementSibling;
 
-});
-
-});
- 
-const seats = document.querySelectorAll('.seat:not(.taken)');
-const count = document.getElementById('count');
-
-seats.forEach(seat => {
-
-seat.addEventListener('click', () => {
-
-seat.classList.toggle('selected');
-
-updateSeats();
-
-});
-
-});
-
-function updateSeats(){
-
-const selectedSeats =
-document.querySelectorAll('.seat.selected');
-
-count.innerText = selectedSeats.length;
-
-}
 room.classList.toggle('active');
 
 });
 
 });
+
+/* ВЫБОР МЕСТ */
 
 const seats =
 document.querySelectorAll('.seat:not(.taken)');
