@@ -1,371 +1,754 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ghost Cinemax</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>Ghost Cinemax</title>
 
-    body {
-      background: linear-gradient(to bottom, #05050a, #111122);
-      color: white;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: #111;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-      color: #9b5cff;
-      letter-spacing: 3px;
-    }
+<style>
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      transition: 0.3s;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
 
-    nav a:hover {
-      color: #9b5cff;
-    }
+body{
+  font-family:'Poppins',sans-serif;
+  background:
+  radial-gradient(circle at top,#32145f 0%,#090910 40%,#040404 100%);
+  color:white;
+  overflow-x:hidden;
+}
 
-    .login-btn {
-      background: #9b5cff;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+/* SCROLL */
 
-    .login-btn:hover {
-      background: #6e35ff;
-    }
+::-webkit-scrollbar{
+  width:10px;
+}
 
-    .hero {
-      height: 90vh;
-      background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1400&auto=format&fit=crop') center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
+::-webkit-scrollbar-thumb{
+  background:#8f5bff;
+  border-radius:20px;
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-    }
+/* HEADER */
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-    }
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
 
-    .hero h1 {
-      font-size: 70px;
-      margin-bottom: 20px;
-    }
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-    .hero span {
-      color: #9b5cff;
-    }
+  padding:20px 70px;
 
-    .hero p {
-      color: #ccc;
-      margin-bottom: 30px;
-      font-size: 20px;
-    }
+  background:rgba(8,8,15,0.75);
+  backdrop-filter:blur(12px);
 
-    .hero button {
-      padding: 15px 30px;
-      margin: 10px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
 
-    .buy-btn {
-      background: #9b5cff;
-      color: white;
-    }
+.logo{
+  font-size:32px;
+  font-family:'Orbitron',sans-serif;
+  font-weight:700;
+  letter-spacing:4px;
 
-    .buy-btn:hover {
-      background: #6e35ff;
-    }
+  color:#b48cff;
 
-    .trailer-btn {
-      background: transparent;
-      border: 2px solid #9b5cff !important;
-      color: white;
-    }
+  text-shadow:
+  0 0 10px #9b5cff,
+  0 0 30px #9b5cff;
+}
 
-    .trailer-btn:hover {
-      background: white;
-      color: black;
-    }
+nav{
+  display:flex;
+  gap:35px;
+}
 
-    .movies {
-      padding: 80px 50px;
-      background: #111;
-    }
+nav a{
+  text-decoration:none;
+  color:#ddd;
+  font-size:15px;
+  position:relative;
+  transition:0.3s;
+}
 
-    .movies h2 {
-      font-size: 45px;
-      margin-bottom: 50px;
-      text-align: center;
-    }
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:0%;
+  height:2px;
+  background:#9b5cff;
+  transition:0.3s;
+}
 
-    .movie-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
+nav a:hover{
+  color:white;
+}
 
-    .movie-card {
-      background: #1a1a1a;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: 0.3s;
-    }
+nav a:hover::after{
+  width:100%;
+}
 
-    .movie-card:hover {
-      transform: scale(1.03);
-    }
+.login-btn{
+  padding:14px 26px;
+  border:none;
+  border-radius:50px;
 
-    .movie-card img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-    }
+  background:linear-gradient(135deg,#9b5cff,#5b1fff);
 
-    .movie-info {
-      padding: 20px;
-    }
+  color:white;
+  font-weight:600;
+  cursor:pointer;
 
-    .movie-info h3 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
+  box-shadow:0 0 20px rgba(155,92,255,0.5);
 
-    .movie-info p {
-      color: #aaa;
-      margin-bottom: 20px;
-    }
+  transition:0.3s;
+}
 
-    .movie-info button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      background: #9b5cff;
-      color: white;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.login-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 30px rgba(155,92,255,0.9);
+}
 
-    .movie-info button:hover {
-      background: #6e35ff;
-    }
+/* HERO */
 
-    .schedule {
-      padding: 80px 50px;
-      background: black;
-    }
+.hero{
+  height:100vh;
 
-    .schedule h2 {
-      text-align: center;
-      font-size: 45px;
-      margin-bottom: 40px;
-    }
+  background:
+  linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+  url('https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1600&auto=format&fit=crop');
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #111;
-      overflow: hidden;
-      border-radius: 20px;
-    }
+  background-size:cover;
+  background-position:center;
 
-    th, td {
-      padding: 20px;
-      text-align: left;
-      border-bottom: 1px solid #222;
-    }
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 
-    th {
-      background: #1c1c1c;
-    }
+  position:relative;
+}
 
-    tr:hover {
-      background: #181818;
-    }
+.hero::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:#7c3cff;
+  filter:blur(180px);
+  opacity:0.25;
+  border-radius:50%;
+}
 
-    .price {
-      color: #9b5cff;
-      font-weight: bold;
-    }
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:850px;
+  padding:20px;
+}
 
-    footer {
-      background: #111;
-      padding: 40px 50px;
-      border-top: 1px solid #222;
-      text-align: center;
-      color: #aaa;
-    }
+.hero h1{
+  font-size:85px;
+  line-height:1.1;
+  margin-bottom:25px;
 
-    @media(max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 20px;
-      }
+  font-family:'Orbitron',sans-serif;
 
-      .hero h1 {
-        font-size: 45px;
-      }
-    }
-  </style>
+  text-shadow:
+  0 0 15px rgba(155,92,255,0.7);
+}
+
+.hero span{
+  color:#b48cff;
+}
+
+.hero p{
+  color:#cfcfcf;
+  font-size:20px;
+  margin-bottom:40px;
+  line-height:1.8;
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.hero button{
+  padding:16px 35px;
+  border:none;
+  border-radius:60px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:600;
+}
+
+.buy-btn{
+  background:linear-gradient(135deg,#9b5cff,#5b1fff);
+  color:white;
+
+  box-shadow:0 0 25px rgba(155,92,255,0.5);
+}
+
+.buy-btn:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
+.trailer-btn{
+  background:transparent;
+  border:2px solid #9b5cff !important;
+  color:white;
+}
+
+.trailer-btn:hover{
+  background:#9b5cff;
+  box-shadow:0 0 25px rgba(155,92,255,0.7);
+}
+
+/* SECTION */
+
+section{
+  padding:120px 80px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-title h2{
+  font-size:55px;
+  font-family:'Orbitron',sans-serif;
+  margin-bottom:15px;
+}
+
+.section-title p{
+  color:#aaa;
+  font-size:18px;
+}
+
+/* MOVIES */
+
+.movies{
+  position:relative;
+}
+
+.movie-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
+}
+
+.movie-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:30px;
+  overflow:hidden;
+
+  backdrop-filter:blur(12px);
+
+  transition:0.4s;
+  position:relative;
+}
+
+.movie-card:hover{
+  transform:translateY(-10px);
+  box-shadow:
+  0 0 40px rgba(155,92,255,0.3);
+}
+
+.movie-card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+}
+
+.movie-info{
+  padding:28px;
+}
+
+.movie-info h3{
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.movie-info p{
+  color:#bbb;
+  margin-bottom:25px;
+  line-height:1.7;
+}
+
+.movie-info button{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:14px;
+
+  background:linear-gradient(135deg,#9b5cff,#5b1fff);
+
+  color:white;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.movie-info button:hover{
+  transform:scale(1.03);
+}
+
+/* SCHEDULE */
+
+.schedule-table{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+
+  background:rgba(255,255,255,0.04);
+
+  border-radius:25px;
+  overflow:hidden;
+
+  backdrop-filter:blur(10px);
+}
+
+th{
+  background:#151520;
+  font-size:17px;
+  color:#caa7ff;
+}
+
+th,td{
+  padding:24px;
+  text-align:left;
+}
+
+tr{
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  transition:0.3s;
+}
+
+tr:hover{
+  background:rgba(255,255,255,0.03);
+}
+
+.price{
+  color:#b48cff;
+  font-weight:700;
+  font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+  position:relative;
+
+  background:
+  linear-gradient(to top,#050505,#0f0f1a);
+
+  padding:90px 70px 40px;
+
+  overflow:hidden;
+}
+
+footer::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:#7b2fff;
+  filter:blur(180px);
+  opacity:0.15;
+  top:-200px;
+  right:-100px;
+}
+
+.footer-container{
+  position:relative;
+  z-index:2;
+
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(250px,1fr));
+
+  gap:50px;
+
+  margin-bottom:60px;
+}
+
+.footer-logo{
+  font-family:'Orbitron',sans-serif;
+  font-size:38px;
+  color:#b48cff;
+  margin-bottom:20px;
+
+  text-shadow:0 0 15px rgba(155,92,255,0.7);
+}
+
+.footer-about p{
+  color:#bdbdbd;
+  line-height:1.9;
+}
+
+.footer-links h3,
+.footer-contact h3{
+  margin-bottom:25px;
+  font-size:22px;
+}
+
+.footer-links a{
+  display:block;
+  text-decoration:none;
+  color:#bdbdbd;
+  margin-bottom:15px;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  color:#b48cff;
+  transform:translateX(5px);
+}
+
+.footer-contact p{
+  margin-bottom:15px;
+  color:#cfcfcf;
+}
+
+.socials{
+  display:flex;
+  gap:15px;
+  margin-top:25px;
+}
+
+.socials a{
+  width:45px;
+  height:45px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,0.08);
+
+  color:white;
+  text-decoration:none;
+
+  transition:0.3s;
+}
+
+.socials a:hover{
+  background:#9b5cff;
+  transform:translateY(-5px);
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding-top:30px;
+  text-align:center;
+  color:#888;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  header{
+    padding:20px 25px;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  section{
+    padding:100px 25px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .section-title h2{
+    font-size:38px;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="logo">GHOST CINEMAX</div>
+<header>
 
-    <nav>
-      <a href="#">Главная</a>
-      <a href="#movies">Фильмы</a>
-      <a href="#schedule">Расписание</a>
-      <a href="#footer">Контакты</a>
-    </nav>
+<div class="logo">GHOST CINEMAX</div>
 
-    <button class="login-btn">Войти</button>
-  </header>
+<nav>
+  <a href="#">Главная</a>
+  <a href="#movies">Премьеры</a>
+  <a href="#schedule">Расписание</a>
+  <a href="#footer">Контакты</a>
+</nav>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Добро пожаловать в <span>GHOST CINEMAX</span></h1>
+<button class="login-btn">Войти</button>
 
-      <p>
-        Окунитесь в мистический мир неоновых залов, тёмных премьер и призрачной атмосферы кино.
-      </p>
+</header>
 
-      <button class="buy-btn">Купить билет</button>
-      <button class="trailer-btn">Трейлеры</button>
-    </div>
-  </section>
+<!-- HERO -->
 
-  <section class="movies" id="movies">
-    <h2>Призрачные премьеры</h2>
+<section class="hero">
 
-    <div class="movie-grid">
+<div class="hero-content">
 
-      <div class="movie-card">
-        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop" alt="movie">
+<h1>
+Добро пожаловать в
+<span>GHOST CINEMAX</span>
+</h1>
 
-        <div class="movie-info">
-          <h3>Ghost Protocol</h3>
-          <p>Мистика • 18:30</p>
-          <button>Купить билет</button>
-        </div>
-      </div>
+<p>
+Погрузитесь в атмосферу неоновых теней,
+призрачных залов и мистических премьер.
+Кинотеатр будущего в стиле Ghost.
+</p>
 
-      <div class="movie-card">
-        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop" alt="movie">
+<div class="hero-buttons">
+  <button class="buy-btn">Купить билет</button>
+  <button class="trailer-btn">Смотреть трейлер</button>
+</div>
 
-        <div class="movie-info">
-          <h3>Phantom Night</h3>
-          <p>Триллер • 20:00</p>
-          <button>Купить билет</button>
-        </div>
-      </div>
+</div>
 
-      <div class="movie-card">
-        <img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1200&auto=format&fit=crop" alt="movie">
+</section>
 
-        <div class="movie-info">
-          <h3>Shadow Reborn</h3>
-          <p>Хоррор • 22:00</p>
-          <button>Купить билет</button>
-        </div>
-      </div>
+<!-- MOVIES -->
 
-    </div>
-  </section>
+<section class="movies" id="movies">
 
-  <section class="schedule" id="schedule">
-    <h2>Расписание</h2>
+<div class="section-title">
+  <h2>Призрачные Премьеры</h2>
+  <p>Самые тёмные и атмосферные фильмы этой ночи</p>
+</div>
 
-    <table>
-      <tr>
-        <th>Фильм</th>
-        <th>Зал</th>
-        <th>Время</th>
-        <th>Цена</th>
-      </tr>
+<div class="movie-grid">
 
-      <tr>
-        <td>Ghost Protocol</td>
-        <td>Ghost Hall</td>
-        <td>18:30</td>
-        <td class="price">6666 ₸</td>
-      </tr>
+<div class="movie-card">
 
-      <tr>
-        <td>Phantom Night</td>
-        <td>Phantom VIP</td>
-        <td>20:00</td>
-        <td class="price">7777 ₸</td>
-      </tr>
+<img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop">
 
-      <tr>
-        <td>Shadow Reborn</td>
-        <td>Shadow Room</td>
-        <td>22:00</td>
-        <td class="price">5555 ₸</td>
-      </tr>
-    </table>
-  </section>
+<div class="movie-info">
 
-  <footer id="footer">
-    <h3>GHOST CINEMAX</h3>
-    <p>г. Алматы • +7 (777) 777-77-77</p>
-    <p>ghostcinemax@mail.kz</p>
-  </footer>
+<h3>Ghost Protocol</h3>
 
-  <script>
-    const buttons = document.querySelectorAll('.buy-btn, .movie-info button');
+<p>
+Неоновый мистический триллер
+о городе теней и потерянных душах.
+18:30 • IMAX
+</p>
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        alert('Добро пожаловать в Ghost Cinemax');
-      });
-    });
-  </script>
+<button>Купить билет</button>
+
+</div>
+</div>
+
+<div class="movie-card">
+
+<img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop">
+
+<div class="movie-info">
+
+<h3>Phantom Night</h3>
+
+<p>
+Тёмная история о призрачном
+кинотеатре, который оживает ночью.
+20:00 • VIP
+</p>
+
+<button>Купить билет</button>
+
+</div>
+</div>
+
+<div class="movie-card">
+
+<img src="https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?q=80&w=1200&auto=format&fit=crop">
+
+<div class="movie-info">
+
+<h3>Shadow Reborn</h3>
+
+<p>
+Хоррор нового поколения
+с атмосферой киберпанка и Ghost Style.
+22:00 • 4DX
+</p>
+
+<button>Купить билет</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SCHEDULE -->
+
+<section id="schedule">
+
+<div class="section-title">
+  <h2>Ночное Расписание</h2>
+  <p>Выберите свой сеанс в мире Ghost</p>
+</div>
+
+<div class="schedule-table">
+
+<table>
+
+<tr>
+<th>Фильм</th>
+<th>Зал</th>
+<th>Время</th>
+<th>Цена</th>
+</tr>
+
+<tr>
+<td>Ghost Protocol</td>
+<td>Ghost Hall</td>
+<td>18:30</td>
+<td class="price">6666 ₸</td>
+</tr>
+
+<tr>
+<td>Phantom Night</td>
+<td>Phantom VIP</td>
+<td>20:00</td>
+<td class="price">7777 ₸</td>
+</tr>
+
+<tr>
+<td>Shadow Reborn</td>
+<td>Shadow Room</td>
+<td>22:00</td>
+<td class="price">5555 ₸</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="footer">
+
+<div class="footer-container">
+
+<div class="footer-about">
+
+<div class="footer-logo">
+GHOST CINEMAX
+</div>
+
+<p>
+Место, где оживают тени.
+Неоновая атмосфера, премиальные залы
+и кино будущего в стиле Ghost.
+</p>
+
+<div class="socials">
+<a href="#">✦</a>
+<a href="#">☾</a>
+<a href="#">✧</a>
+</div>
+
+</div>
+
+<div class="footer-links">
+
+<h3>Навигация</h3>
+
+<a href="#">Главная</a>
+<a href="#movies">Премьеры</a>
+<a href="#schedule">Расписание</a>
+<a href="#">VIP Залы</a>
+
+</div>
+
+<div class="footer-contact">
+
+<h3>Контакты</h3>
+
+<p>📍 Алматы, Казахстан</p>
+<p>📞 +7 (777) 777-77-77</p>
+<p>✉ ghostcinemax@mail.kz</p>
+<p>🕓 24/7 Night Cinema</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 GHOST CINEMAX — Neon Ghost Experience
+</div>
+
+</footer>
+
+<script>
+
+const buttons = document.querySelectorAll(
+'.buy-btn, .movie-info button'
+);
+
+buttons.forEach(button => {
+
+button.addEventListener('click', () => {
+
+alert('Добро пожаловать в GHOST CINEMAX 👻');
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
